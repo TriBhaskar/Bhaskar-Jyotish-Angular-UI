@@ -1,0 +1,47 @@
+<section class="pricing-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 [innerHTML]="title()"></h2>
+            <p>{{ subtitle() }}</p>
+        </div>
+        <div class="pricing-grid">
+            @for (plan of plans(); track plan.name) {
+            <mat-card class="pricing-card" [class.featured]="plan.isFeatured">
+                @if (plan.isFeatured && plan.featuredBadge) {
+                <div class="popular-badge">
+                    <mat-icon>workspace_premium</mat-icon>
+                    <span>{{ plan.featuredBadge }}</span>
+                </div>
+                }
+                <h3>{{ plan.name }}</h3>
+                <div class="price">
+                    <span class="currency">₹</span>
+                    <span class="amount">{{ plan.price }}</span>
+                    <span class="period">/{{ plan.period }}</span>
+                </div>
+                <p class="plan-description">{{ plan.description }}</p>
+                <ul class="plan-features">
+                    @for (feature of plan.features; track feature) {
+                    <li><mat-icon class="check">check_circle</mat-icon> {{ feature }}</li>
+                    }
+                </ul>
+                @if (plan.buttonStyle === 'raised') {
+                <button mat-raised-button color="primary" class="plan-button">{{ plan.buttonText }}</button>
+                } @else {
+                <button mat-stroked-button color="primary" class="plan-button">{{ plan.buttonText }}</button>
+                }
+            </mat-card>
+            }
+        </div>
+        @if (footerNote() || footerButtonText()) {
+        <div class="pricing-footer">
+            @if (footerNote()) {
+            <p class="pricing-note">{{ footerNote() }}</p>
+            }
+            @if (footerButtonText()) {
+            <button mat-button color="primary">{{ footerButtonText() }}</button>
+            }
+        </div>
+        }
+    </div>
+</section>

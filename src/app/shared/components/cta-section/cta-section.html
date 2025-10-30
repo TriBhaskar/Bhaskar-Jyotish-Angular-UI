@@ -1,0 +1,21 @@
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <span class="cta-badge">{{ data().badge }}</span>
+            <h2>{{ data().title }} <span class="highlight">{{ data().highlightedTitle }}</span></h2>
+            <p>{{ data().description }}</p>
+            <div class="cta-actions">
+                <button mat-raised-button class="cta-white-button">{{ data().primaryButtonText }}</button>
+                <button mat-stroked-button class="cta-outlined-button">{{ data().secondaryButtonText }}</button>
+            </div>
+            <div class="cta-stats">
+                @for (stat of data().stats; track stat.label) {
+                <div class="cta-stat">
+                    <h3>{{ stat.value }}</h3>
+                    <p>{{ stat.label }}</p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

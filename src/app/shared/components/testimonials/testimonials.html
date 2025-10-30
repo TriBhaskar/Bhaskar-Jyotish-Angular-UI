@@ -1,0 +1,27 @@
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 [innerHTML]="title()"></h2>
+            <p>{{ subtitle() }}</p>
+        </div>
+        <div class="testimonials-grid">
+            @for (testimonial of testimonials(); track testimonial.authorName) {
+            <mat-card class="testimonial-card">
+                <div class="stars">
+                    @for (star of getStarArray(testimonial.rating); track $index) {
+                    <mat-icon>star</mat-icon>
+                    }
+                </div>
+                <p class="testimonial-text">"{{ testimonial.text }}"</p>
+                <div class="testimonial-author">
+                    <div class="avatar">{{ testimonial.authorInitials }}</div>
+                    <div class="author-info">
+                        <h4>{{ testimonial.authorName }}</h4>
+                        <p>{{ testimonial.authorLocation }}</p>
+                    </div>
+                </div>
+            </mat-card>
+            }
+        </div>
+    </div>
+</section>
