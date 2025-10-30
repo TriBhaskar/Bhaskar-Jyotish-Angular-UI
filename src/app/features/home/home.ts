@@ -31,7 +31,7 @@ export class Home {
   heroData: HeroData = {
     badge: {
       icon: 'auto_awesome',
-      text: 'AI-Powered Vedic Astrology Platform',
+      text: 'Vedic Astrology Platform',
     },
     title: 'Discover Your',
     highlightedTitle: 'Cosmic Journey',

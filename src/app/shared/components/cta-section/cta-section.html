@@ -5,8 +5,10 @@
             <h2>{{ data().title }} <span class="highlight">{{ data().highlightedTitle }}</span></h2>
             <p>{{ data().description }}</p>
             <div class="cta-actions">
-                <button mat-raised-button class="cta-white-button">{{ data().primaryButtonText }}</button>
-                <button mat-stroked-button class="cta-outlined-button">{{ data().secondaryButtonText }}</button>
+                <button mat-raised-button class="cta-white-button" routerLink="/register">{{ data().primaryButtonText
+                    }}</button>
+                <button mat-stroked-button class="cta-outlined-button" routerLink="/" fragment="pricing">{{
+                    data().secondaryButtonText }}</button>
             </div>
             <div class="cta-stats">
                 @for (stat of data().stats; track stat.label) {

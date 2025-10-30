@@ -18,7 +18,8 @@
                     }
                 </ul>
                 <p class="service-price" [innerHTML]="service.price"></p>
-                <button mat-raised-button [color]="service.buttonColor || 'primary'">{{ service.buttonText }}</button>
+                <button mat-raised-button [color]="service.buttonColor || 'primary'" routerLink="/register">{{
+                    service.buttonText }}</button>
             </mat-card>
             }
         </div>

@@ -1,1 +1,114 @@
-<p>register works!</p>
+<div class="auth-container">
+    <div class="auth-card">
+        <!-- Logo/Branding -->
+        <div class="auth-header">
+            <div class="logo-wrapper">
+                <mat-icon class="logo-icon">auto_awesome</mat-icon>
+            </div>
+            <h1>Create Account</h1>
+            <p class="subtitle">Join Bhaskar Jyotish today and unlock your cosmic journey</p>
+        </div>
+
+        <!-- Social Login Buttons -->
+        <div class="social-login">
+            <button mat-stroked-button class="social-button google" (click)="signInWithGoogle()">
+                <div class="button-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 48 48">
+                        <path fill="#FFC107"
+                            d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                        </path>
+                        <path fill="#FF3D00"
+                            d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                        </path>
+                        <path fill="#4CAF50"
+                            d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                        </path>
+                        <path fill="#1976D2"
+                            d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                        </path>
+                    </svg>
+                    <span>Continue with Google</span>
+                </div>
+            </button>
+        </div>
+
+        <mat-divider class="divider-with-text">
+            <span class="divider-text">Or continue with email</span>
+        </mat-divider>
+
+        <!-- Registration Form -->
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+            <!-- Name Field -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter your full name" autocomplete="name">
+                <mat-icon matPrefix>person</mat-icon>
+                @if (registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched) {
+                <mat-error>Name is required</mat-error>
+                }
+                @if (registerForm.get('name')?.hasError('minlength') && registerForm.get('name')?.touched) {
+                <mat-error>Name must be at least 2 characters</mat-error>
+                }
+            </mat-form-field>
+
+            <!-- Email Field -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email Address</mat-label>
+                <input matInput formControlName="email" type="email" placeholder="Enter your email"
+                    autocomplete="email">
+                <mat-icon matPrefix>email</mat-icon>
+                @if (registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched) {
+                <mat-error>Email is required</mat-error>
+                }
+                @if (registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched) {
+                <mat-error>Please enter a valid email</mat-error>
+                }
+            </mat-form-field>
+
+            <!-- Password Field -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'"
+                    placeholder="Create a password" autocomplete="new-password">
+                <mat-icon matPrefix>lock</mat-icon>
+                <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword()">
+                    <mat-icon>{{hidePassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                @if (registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) {
+                <mat-error>Password is required</mat-error>
+                }
+                @if (registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched) {
+                <mat-error>Password must be at least 6 characters</mat-error>
+                }
+                <mat-hint>Use at least 6 characters</mat-hint>
+            </mat-form-field>
+
+            <!-- Terms and Conditions -->
+            <div class="terms-checkbox">
+                <mat-checkbox formControlName="acceptTerms">
+                    I agree to the <a href="/terms" target="_blank">Terms of Service</a> and
+                    <a href="/privacy" target="_blank">Privacy Policy</a>
+                </mat-checkbox>
+                @if (registerForm.get('acceptTerms')?.hasError('required') && registerForm.get('acceptTerms')?.touched)
+                {
+                <mat-error class="checkbox-error">You must accept the terms and conditions</mat-error>
+                }
+            </div>
+
+            <!-- Submit Button -->
+            <button mat-raised-button color="primary" type="submit" class="submit-button" [disabled]="isLoading()">
+                @if (isLoading()) {
+                <span>Creating Account...</span>
+                } @else {
+                <span>Create Account</span>
+                }
+            </button>
+        </form>
+
+        <!-- Sign In Link -->
+        <div class="auth-footer">
+            <p>Already have an account? <a routerLink="/login" class="link">Sign In</a></p>
+        </div>
+    </div>
+</div>
