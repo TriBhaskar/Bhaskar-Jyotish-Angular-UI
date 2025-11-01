@@ -19,12 +19,14 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
-            "styles": [
-              "src/custom-theme.scss",
-              "src/styles.css"
-            ]
+            "styles": ["src/custom-theme.scss", "src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -73,11 +75,14 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           }
         }
       }

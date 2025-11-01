@@ -35,7 +35,7 @@
   margin-bottom: 32px;
 }
 
-.logo-wrapper {
+/* .logo-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@
   border-radius: 16px;
   background: linear-gradient(135deg, #d91656 0%, #640d5f 100%);
   margin-bottom: 20px;
-}
+} */
 
 .logo-icon {
   color: white !important;
@@ -66,6 +66,11 @@
   margin: 0;
 }
 
+.logo-image {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+}
 /* Social Login */
 .social-login {
   display: flex;

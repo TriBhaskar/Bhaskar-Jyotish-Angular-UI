@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { AssetsService } from '../../../core/services/assets.service';
 
 @Component({
   selector: 'app-register',
@@ -29,6 +30,8 @@ import { MatDividerModule } from '@angular/material/divider';
   styleUrl: './register.css',
 })
 export class Register {
+  protected readonly assets = inject(AssetsService);
+
   registerForm: FormGroup;
   hidePassword = signal(true);
   isLoading = signal(false);

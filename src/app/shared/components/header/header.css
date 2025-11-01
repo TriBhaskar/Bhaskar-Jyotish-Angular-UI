@@ -27,11 +27,10 @@
   text-decoration: none;
 }
 
-.logo-icon {
-  color: var(--mat-sys-primary);
-  font-size: 28px;
-  width: 28px;
-  height: 28px;
+.logo-image {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo-text {
