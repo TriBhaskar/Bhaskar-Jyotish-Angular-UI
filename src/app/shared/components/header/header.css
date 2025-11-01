@@ -19,27 +19,12 @@
   height: 64px;
 }
 
-.logo {
+.logo-link {
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  text-decoration: none;
-}
-
-.logo-image {
-  height: 65px;
-  width: auto;
-  object-fit: contain;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #eb5b00 0%, #d91656 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .nav-menu {

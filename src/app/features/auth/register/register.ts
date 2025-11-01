@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
-import { AssetsService } from '../../../core/services/assets.service';
+import { Logo } from '../../../shared/components/logo/logo';
 
 @Component({
   selector: 'app-register',
@@ -25,13 +25,12 @@ import { AssetsService } from '../../../core/services/assets.service';
     MatIconModule,
     MatCheckboxModule,
     MatDividerModule,
+    Logo,
   ],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
 export class Register {
-  protected readonly assets = inject(AssetsService);
-
   registerForm: FormGroup;
   hidePassword = signal(true);
   isLoading = signal(false);

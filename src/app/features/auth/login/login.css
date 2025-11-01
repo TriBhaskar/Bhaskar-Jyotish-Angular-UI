@@ -35,24 +35,14 @@
   margin-bottom: 32px;
 }
 
-/* .logo-wrapper {
+.logo-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 64px;
   height: 64px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #d91656 0%, #640d5f 100%);
   margin-bottom: 20px;
-} */
-
-.logo-icon {
-  color: white !important;
-  font-size: 32px !important;
-  width: 32px !important;
-  height: 32px !important;
 }
-
 .auth-header h1 {
   font-size: 28px;
   font-weight: 700;
@@ -64,12 +54,6 @@
   font-size: 14px;
   color: #666;
   margin: 0;
-}
-
-.logo-image {
-  height: 65px;
-  width: auto;
-  object-fit: contain;
 }
 /* Social Login */
 .social-login {
