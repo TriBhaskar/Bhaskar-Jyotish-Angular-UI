@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { AssetsService } from '../../../core/services/assets.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-export class Footer {}
+export class Footer {
+  protected readonly assets = inject(AssetsService);
+}
